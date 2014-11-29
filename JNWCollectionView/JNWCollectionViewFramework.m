@@ -885,7 +885,8 @@ static void JNWCollectionViewCommonInit(JNWCollectionView *collectionView) {
 }
 
 - (void)selectItemAtIndexPath:(NSIndexPath *)indexPath animated:(BOOL)animated {
-	if (!self.allowsSelection ||
+	if (!indexPath ||
+        !self.allowsSelection ||
 		(_collectionViewFlags.delegateShouldSelect && ![self.delegate collectionView:self shouldSelectItemAtIndexPath:indexPath])) {
 		return;
 	}
